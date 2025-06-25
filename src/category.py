@@ -2,6 +2,7 @@ class Category:
     name: str
     description: str
     products: list
+
     category_count: int = 0
     product_count: int = 0
 

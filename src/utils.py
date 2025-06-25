@@ -22,7 +22,7 @@ def get_product_category(path_file: str):
     data = read_json_file(path_file)
     categories = []
     products = []
-    for cat in (data):
+    for cat in data:
         product_for_cat = []
         for prod in cat["products"]:
             product = Product(prod["name"], prod["description"], prod["price"], prod["quantity"])
