@@ -1,19 +1,21 @@
 import json
 import os
-from src.product import Product
-from src.category import Category
 
-def read_json_file(path_file):
+from src.category import Category
+from src.product import Product
+
+
+def read_json_file(path_file: str) -> dict:
     """
     Функуия чтение json файла
     """
     path = os.path.abspath(path_file)
-    with open(path_file, mode="r", encoding="utf-8") as file:
+    with open(path, mode="r", encoding="utf-8") as file:
         data = json.load(file)
     return data
 
 
-def get_product_category(path_file):
+def get_product_category(path_file: str):
     """
     Функция создания объектов из класса Product и Category
     """
