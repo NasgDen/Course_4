@@ -15,6 +15,13 @@ class Category:
 
     # Метод для добавления товара
     def add_product(self, product):
+        for prod in self.__products:
+            if prod.name == product.name:
+                if prod.price >= product.price:
+                    product.price = prod.price
+                elif prod.price < product.price:
+                    prod.price = product.price
+                prod.quantity += product.quantity
         self.__products.append(product)
         Category.product_count += 1
 
