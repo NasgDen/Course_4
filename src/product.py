@@ -28,4 +28,9 @@ class Product:
     def price(self, price):
         if price <= 0:
             print("Цена не должна быть нулевая или отрицательная")
-        self.__price = price
+        if self.__price > price:
+            print(f"Цена товара понизилась. Было: {self.__price}, Стало: {price}")
+            user_message = input("Введите y: подтвердить новую цену или n: оставить цену:")
+            if user_message in "y":
+                self.__price = price
+

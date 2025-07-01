@@ -22,8 +22,13 @@ class Category:
                 elif prod.price < product.price:
                     prod.price = product.price
                 prod.quantity += product.quantity
+                self.__products.append(product)
+                Category.product_count += 1
+                return
         self.__products.append(product)
-        Category.product_count += 1
+        Category.product_count += product.quantity
+
+
 
     # Геттер - выводить список товаров в виде строк
     @property
