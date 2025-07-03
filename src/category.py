@@ -28,8 +28,6 @@ class Category:
         self.__products.append(product)
         Category.product_count += product.quantity
 
-
-
     # Геттер - выводить список товаров в виде строк
     @property
     def products(self):

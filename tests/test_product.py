@@ -1,5 +1,4 @@
 from src.product import Product
-from unittest.mock import patch
 
 
 def test_product_init(product_1):
@@ -17,6 +16,3 @@ def test_product_init(product_1):
     assert new_product.quantity == 10
     new_product.price = 180000.0
     assert new_product.price == 170000.0
-    # new_product.price = 90000.0
-    # mock_input.return_value = "y"
-    # assert new_product.price == 90000.0

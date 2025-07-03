@@ -33,4 +33,3 @@ class Product:
             user_message = input("Введите y: подтвердить новую цену или n: оставить цену:")
             if user_message in "y":
                 self.__price = price
-
