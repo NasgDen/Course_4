@@ -24,4 +24,3 @@ def test_category_init(category_1):
     )
     assert category_1.product_count == 3
     assert category_1.category_count == 2
-
