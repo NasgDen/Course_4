@@ -16,3 +16,7 @@ def test_product_init(product_1):
     assert new_product.quantity == 10
     new_product.price = 180000.0
     assert new_product.price == 170000.0
+
+    assert str(product_1) == "Samsung Galaxy C23 Ultra, 180000.0 руб. Остаток: 5 шт."
+
+    assert product_1 + new_product == 2600000.0
