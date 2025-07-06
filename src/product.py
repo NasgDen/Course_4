@@ -10,6 +10,10 @@ class Product:
         self.__price = price
         self.quantity = quantity
 
+
+    def __str__(self):
+        return f"{self.name}, {self.__price} руб. Остаток: {self.quantity} шт."
+
     # Метод принимает на вход параметры товара в словаре и возвращать созданный объект класса Product
     @classmethod
     def new_product(cls, product):
