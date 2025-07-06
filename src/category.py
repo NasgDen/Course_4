@@ -1,7 +1,7 @@
 class Category:
     name: str
     description: str
-    products: list
+    __products: list
 
     category_count: int = 0
     product_count: int = 0
@@ -9,6 +9,29 @@ class Category:
     def __init__(self, name, description, products):
         self.name = name
         self.description = description
-        self.products = products
+        self.__products = products
         Category.category_count += 1
         Category.product_count += len(products)
+
+    # Метод для добавления товара
+    def add_product(self, product):
+        for prod in self.__products:
+            if prod.name == product.name:
+                if prod.price >= product.price:
+                    product.price = prod.price
+                elif prod.price < product.price:
+                    prod.price = product.price
+                prod.quantity += product.quantity
+                self.__products.append(product)
+                Category.product_count += 1
+                return
+        self.__products.append(product)
+        Category.product_count += product.quantity
+
+    # Геттер - выводить список товаров в виде строк
+    @property
+    def products(self):
+        products = ""
+        for prod in self.__products:
+            products += (f"{prod.name}, {prod.price} руб. Остаток: {prod.quantity} шт.\n")
+        return products
