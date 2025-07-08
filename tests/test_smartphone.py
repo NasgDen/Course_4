@@ -1,5 +1,6 @@
 from src.smartphone import Smartphone
 
+
 # Тест инициализации класса Smartphone
 def test_smartphone():
     smartphone1 = Smartphone(
