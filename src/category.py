@@ -1,3 +1,6 @@
+from src.product import Product
+
+
 class Category:
     name: str
     description: str
@@ -22,18 +25,21 @@ class Category:
 
     def add_product(self, product):
         """Метод для добавления товара"""
-        for prod in self.__products:
-            if prod.name == product.name:
-                if prod.price >= product.price:
-                    product.price = prod.price
-                elif prod.price < product.price:
-                    prod.price = product.price
-                prod.quantity += product.quantity
-                self.__products.append(product)
-                Category.product_count += 1
-                return
-        self.__products.append(product)
-        Category.product_count += product.quantity
+        if isinstance(product, Product):
+            for prod in self.__products:
+                if prod.name == product.name:
+                    if prod.price >= product.price:
+                        product.price = prod.price
+                    elif prod.price < product.price:
+                        prod.price = product.price
+                    prod.quantity += product.quantity
+                    self.__products.append(product)
+                    Category.product_count += 1
+                    return
+            self.__products.append(product)
+            Category.product_count += product.quantity
+        else:
+            raise TypeError
 
     @property
     def products(self):

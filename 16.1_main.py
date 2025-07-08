@@ -1,5 +1,6 @@
 from src.smartphone import Smartphone
 from src.lawngrass import LawnGrass
+from src.category import Category
 
 
 if __name__ == '__main__':
