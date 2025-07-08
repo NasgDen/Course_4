@@ -10,22 +10,35 @@ class Product:
         self.__price = price
         self.quantity = quantity
 
-    # Метод принимает на вход параметры товара в словаре и возвращать созданный объект класса Product
+    def __str__(self):
+        """Метод реализует строковое отображение"""
+        return f"{self.name}, {self.__price} руб. Остаток: {self.quantity} шт."
+
+    def __add__(self, other):
+        """Метод возвращает результат сложения сумм всех товаров двух категорий"""
+        if isinstance(other, Product):
+            return self.__price * self.quantity + other.__price * other.quantity
+        else:
+            raise ValueError("Other не является объектом класса Product")
+
     @classmethod
     def new_product(cls, product):
+        """
+        Метод принимает на вход параметры товара в словаре и возвращать созданный объект класса Product
+        """
         return cls(name=product["name"],
                    description=product["description"],
                    price=product["price"],
                    quantity=product["quantity"])
 
-    # Геттер для атрибута __price
     @property
     def price(self):
+        """Геттер для атрибута __price"""
         return self.__price
 
-    # Сеттер для атрибута __price
     @price.setter
     def price(self, price):
+        """Сеттер для атрибута __price"""
         if price <= 0:
             print("Цена не должна быть нулевая или отрицательная")
         if self.__price > price:
