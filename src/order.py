@@ -18,5 +18,3 @@ class Order(AbstractClass):
         """ Метод рассчитывает полную стоимость заказа"""
         self.price = self.product.price * self.quantity
         return self
-
-
