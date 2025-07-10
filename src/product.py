@@ -16,10 +16,10 @@ class Product:
 
     def __add__(self, other):
         """Метод возвращает результат сложения сумм всех товаров двух категорий"""
-        if isinstance(other, Product):
+        if type(other) is self.__class__:
             return self.__price * self.quantity + other.__price * other.quantity
         else:
-            raise ValueError("Other не является объектом класса Product")
+            raise TypeError(f"Other не является объектом класса {self.__class__}")
 
     @classmethod
     def new_product(cls, product):
