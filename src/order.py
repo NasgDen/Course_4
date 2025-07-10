@@ -1,0 +1,21 @@
+from src.abstract import AbstractClass
+
+
+class Order(AbstractClass):
+
+    def __init__(self, product, quantity):
+        """ Конструктор для класса Order """
+        self.product = product
+        self.quantity = quantity
+        self.get_price()
+
+    def __str__(self):
+        """Метод реализует строковое отображение"""
+        return f"{self.product.name} Количество: {self.quantity}шт. Общая стоимость: {self.price} руб."
+
+    def get_price(self):
+        """ Метод рассчитывает полную стоимость заказа"""
+        self.price = self.product.price * self.quantity
+        return self
+
+

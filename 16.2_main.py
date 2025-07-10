@@ -1,6 +1,6 @@
 from src.product import Product
 from src.category import Category
-# from src.order import Order
+from src.order import Order
 
 if __name__ == '__main__':
     product1 = Product("Samsung Galaxy S23 Ultra", "256GB, Серый цвет, 200MP камера", 180000.0, 5)
@@ -45,9 +45,10 @@ if __name__ == '__main__':
     print(Category.category_count)
     print(Category.product_count)
 
-    # bay = Order(product1, 2)
-    # print("*" * 15, "ЗАКАЗ", "*" * 15)
-    # print(bay.product.name)
-    # print(bay.quantity)
-    # print(bay.price)
-    # print(bay)
+    # Проверка создания объекта класса Order
+    purchase = Order(product1, 2)
+    print("*" * 15, "ЗАКАЗ", "*" * 15)
+    print(purchase.product.name)
+    print(purchase.quantity)
+    print(purchase.price)
+    print(purchase)
