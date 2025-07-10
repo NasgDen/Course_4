@@ -1,7 +1,8 @@
-from src.base_class import BaseClass
+from src.base_class import BaseProduct
+from src.mixin_print import MixinPrint
 
 
-class Product(BaseClass):
+class Product(MixinPrint, BaseProduct):
     name: str
     description: str
     __price: float
@@ -12,6 +13,7 @@ class Product(BaseClass):
         self.description = description
         self.__price = price
         self.quantity = quantity
+        super().__init__()
 
     def __str__(self):
         """Метод реализует строковое отображение"""
