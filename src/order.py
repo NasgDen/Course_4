@@ -2,6 +2,7 @@ from src.abstract import AbstractClass
 
 
 class Order(AbstractClass):
+    """ Класс для создания заказа"""
 
     def __init__(self, product, quantity):
         """ Конструктор для класса Order """
