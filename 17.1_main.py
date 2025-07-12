@@ -1,6 +1,7 @@
 from src.category import Category
 from src.order import Order
 from src.product import Product
+from src.exception import ExceptionZeroQuantity
 
 
 if __name__ == '__main__':
@@ -22,3 +23,19 @@ if __name__ == '__main__':
 
     category_empty = Category("Пустая категория", "Категория без продуктов", [])
     print(category_empty.middle_price())
+
+    print("*" * 60)
+    try:
+        purchase = Order(product1, 0)
+    except ExceptionZeroQuantity as err:
+        print(err.message)
+    finally:
+        print("Обработка добавления товара завершена.")
+
+
+
+    # product4 = Product("Xiaomi Redmi Note 11", "1024GB, Синий", 31000.0, 0)
+    # try:
+    #     category1.add_product(product_invalid)
+    # except ExceptionZeroQuantity as err:
+    #     print(err.message)
