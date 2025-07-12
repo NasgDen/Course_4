@@ -4,12 +4,13 @@ from src.product import Product
 from src.exception import ExceptionZeroQuantity
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     try:
         product_invalid = Product("Бракованный товар", "Неверное количество", 1000.0, 0)
     except ValueError as e:
         print(
-            "Возникла ошибка ValueError прерывающая работу программы при попытке добавить продукт с нулевым количеством")
+            "Возникла ошибка ValueError прерывающая работу программы при попытке добавить продукт с нулевым количеством"
+        )
     else:
         print("Не возникла ошибка ValueError при попытке добавить продукт с нулевым количеством")
 
@@ -29,13 +30,7 @@ if __name__ == '__main__':
         purchase = Order(product1, 0)
     except ExceptionZeroQuantity as err:
         print(err.message)
+    else:
+        print("Товар успешно добавлен")
     finally:
         print("Обработка добавления товара завершена.")
-
-
-
-    # product4 = Product("Xiaomi Redmi Note 11", "1024GB, Синий", 31000.0, 0)
-    # try:
-    #     category1.add_product(product_invalid)
-    # except ExceptionZeroQuantity as err:
-    #     print(err.message)

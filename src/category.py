@@ -1,5 +1,6 @@
 from src.abstract import AbstractClass
 from src.product import Product
+from src.exception import ExceptionZeroQuantity
 
 
 class Category(AbstractClass):
@@ -27,6 +28,8 @@ class Category(AbstractClass):
     def add_product(self, product):
         """Метод для добавления товара"""
         if isinstance(product, Product):
+            if product.quantity == 0:
+                raise ExceptionZeroQuantity
             for prod in self.__products:
                 if prod.name == product.name:
                     if prod.price >= product.price:
@@ -39,6 +42,7 @@ class Category(AbstractClass):
                     return
             self.__products.append(product)
             Category.product_count += product.quantity
+            print("Товар успешно добавлен")
         else:
             raise TypeError
 

@@ -25,6 +25,7 @@ def test_category_init(category_1):
     assert category_1.product_count == 3
     assert category_1.category_count == 2
 
+
 def test_category_empty_middle_price():
     category_empty = Category("Пустая категория", "Категория без продуктов", [])
     assert category_empty.middle_price() == 0
