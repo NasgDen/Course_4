@@ -1,7 +1,8 @@
+from src.abstract import AbstractClass
 from src.product import Product
 
 
-class Category:
+class Category(AbstractClass):
     name: str
     description: str
     __products: list
