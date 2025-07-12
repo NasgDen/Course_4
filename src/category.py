@@ -49,3 +49,13 @@ class Category(AbstractClass):
         for prod in self.__products:
             products += (f"{str(prod)}\n")
         return products
+
+    def middle_price(self):
+        """ Функция считает среднию цену товаров в категории, если список пуст возвращает - 0 """
+        sum_price_product = 0
+        try:
+            for product in self.__products:
+                sum_price_product += product.price
+            return round(sum_price_product / len(self.__products), 2)
+        except ZeroDivisionError:
+            return 0
