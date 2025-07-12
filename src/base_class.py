@@ -2,7 +2,7 @@ from abc import ABC, abstractmethod
 
 
 class BaseProduct(ABC):
-    """ Абстрактный класс для класса Product """
+    """Абстрактный базовый класс, определяющий интерфейс для классов продуктов."""
 
     @abstractmethod
     def __init__(self):

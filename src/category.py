@@ -1,6 +1,6 @@
 from src.abstract import AbstractClass
-from src.product import Product
 from src.exception import ExceptionZeroQuantity
+from src.product import Product
 
 
 class Category(AbstractClass):

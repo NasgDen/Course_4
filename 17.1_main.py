@@ -1,8 +1,7 @@
 from src.category import Category
+from src.exception import ExceptionZeroQuantity
 from src.order import Order
 from src.product import Product
-from src.exception import ExceptionZeroQuantity
-
 
 if __name__ == "__main__":
     try:
@@ -28,6 +27,16 @@ if __name__ == "__main__":
     print("*" * 60)
     try:
         purchase = Order(product1, 0)
+    except ExceptionZeroQuantity as err:
+        print(err.message)
+    else:
+        print("Товар успешно добавлен")
+    finally:
+        print("Обработка добавления товара завершена.")
+
+    print("*" * 60)
+    try:
+        purchase = Order(product1, 1)
     except ExceptionZeroQuantity as err:
         print(err.message)
     else:

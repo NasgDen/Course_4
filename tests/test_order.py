@@ -1,7 +1,8 @@
+import pytest
+
+from src.exception import ExceptionZeroQuantity
 from src.order import Order
 from src.product import Product
-from src.exception import ExceptionZeroQuantity
-import pytest
 
 
 def test_order(capsys):
