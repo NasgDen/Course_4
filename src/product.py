@@ -3,6 +3,7 @@ from src.mixin_print import MixinPrint
 
 
 class Product(MixinPrint, BaseProduct):
+    """ Класс для создания товаров """
     name: str
     description: str
     __price: float
@@ -12,6 +13,8 @@ class Product(MixinPrint, BaseProduct):
         self.name = name
         self.description = description
         self.__price = price
+        if quantity == 0:
+            raise ValueError("Товар с нулевым количеством не может быть добавлен")
         self.quantity = quantity
         super().__init__()
 

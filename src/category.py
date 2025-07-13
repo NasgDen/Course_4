@@ -1,4 +1,5 @@
 from src.abstract import AbstractClass
+from src.exception import ExceptionZeroQuantity
 from src.product import Product
 
 
@@ -27,6 +28,8 @@ class Category(AbstractClass):
     def add_product(self, product):
         """Метод для добавления товара"""
         if isinstance(product, Product):
+            if product.quantity == 0:
+                raise ExceptionZeroQuantity
             for prod in self.__products:
                 if prod.name == product.name:
                     if prod.price >= product.price:
@@ -39,6 +42,7 @@ class Category(AbstractClass):
                     return
             self.__products.append(product)
             Category.product_count += product.quantity
+            print("Товар успешно добавлен")
         else:
             raise TypeError
 
@@ -49,3 +53,13 @@ class Category(AbstractClass):
         for prod in self.__products:
             products += (f"{str(prod)}\n")
         return products
+
+    def middle_price(self):
+        """ Функция считает среднию цену товаров в категории, если список пуст возвращает - 0 """
+        sum_price_product = 0
+        try:
+            for product in self.__products:
+                sum_price_product += product.price
+            return round(sum_price_product / len(self.__products), 2)
+        except ZeroDivisionError:
+            return 0

@@ -1,4 +1,5 @@
 from src.abstract import AbstractClass
+from src.exception import ExceptionZeroQuantity
 
 
 class Order(AbstractClass):
@@ -7,6 +8,8 @@ class Order(AbstractClass):
     def __init__(self, product, quantity):
         """ Конструктор для класса Order """
         self.product = product
+        if quantity == 0:
+            raise ExceptionZeroQuantity
         self.quantity = quantity
         self.get_price()
 
